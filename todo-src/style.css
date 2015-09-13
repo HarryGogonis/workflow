@@ -11,3 +11,8 @@ h4 {
 .btn-info {
 	margin-right: 10px;
 }
+
+.strike {
+    text-decoration: line-through;
+    color: #ccc
+}
