@@ -33,6 +33,25 @@ myApp.controller('MainCtrl', function ($scope){
     if($scope.todos[item].text !== "")
       $scope.editable[item] = false;
   }
+  
+  // Clears all todos that are marked complete
+  $scope.clearComplete = function() {
+    // Create a copy of the todos array
+    var temp = [];
+    // iterate through todos array
+    for (var i in $scope.todos) {
+      var obj = $scope.todos[i];
+      // check that obj is defined and todo is not done
+      if (obj && !obj.done) {
+        // add todo to temp array
+        temp.push(obj);
+      }
+      // temp becomes new todo array
+      $scope.todos = temp
+      // fix increment of items
+      $scope.totalItems = temp.length;
+    }
+  }
 });
 
 /*************************
